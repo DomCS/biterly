@@ -1,0 +1,67 @@
+
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: space-around;
+
+  height: 300px;
+
+  border; 1px solid black;
+}
+
+form{
+  padding: 10px 0 10px 0;
+  text-align: center;
+ /*background-image: url('20180910_181110.jpg');*/
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  width: 200px;
+  height: 300px;
+  color: grey;
+  margin:auto;
+  vertical-margin: auto;
+}
+
+input {
+
+}
+.header{
+  background-color: blue;
+}
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex:  $values;
+  -webkit-flex:  $values;
+  -ms-flex:  $values;
+  flex:  $values;
+}
+
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;
+  -moz-box-ordinal-group: $val;
+  -ms-flex-order: $val;
+  -webkit-order: $val;
+  order: $val;
+}
+
+.wrapper {
+  @include flexbox();
+}
+
+.item {
+  @include flex(1 200px);
+  @include order(2);
+}

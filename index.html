@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- **3** -->
+    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+
+    <title>Biterly the Bidding Platform</title>
+  </head>
+
+<!-- **2** -->
+  <body>
+
+
+
+      <div class="container">
+
+        <form method="post" class="valid">
+          <h3>I test for validation</h3>
+          <span>username :</span><br/>
+          <input type="text" id="usernameInput" name="username" value="" required><br/>
+          <span>password :</span><br/>
+          <input id="passwordInput" type="password" name="password" value=""> </input>
+          <button type="submit" value="Submit" onclick="validateForm()">Submit</button>
+        </form>
+
+        <p id="demo"></p>
+
+        <form name="web_form" id="web_form" method="post" action="connect.php" class="database">
+          <h3>I export to database</h3>
+          <p><label>Enter first name: </label>
+            <input type="text" name="fname" id="fname" />
+          </p>
+          <p><label>Enter last name: </label>
+            <input type="text" name="lname" id="lname" />
+          </p>
+          <p><label>Select gender: </label>
+            <select name="gender" id="gender">
+                  <option value="-" selected="selected">-</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="NA">NA</option>
+            </select>
+          </p>
+          <p><label>Enter age: </label>
+            <input type="text" name="age" id="age" />
+          </p>
+          <p><label>Enter city: </label>
+            <input type="text" name="city" id="city" />
+          </p>
+          <p>
+            <input type="submit" name="s1" id="s1" value="Submit"/>
+          </p>
+        </form>
+
+
+      </div>
+
+
+
+      <p id="demo"></p>
+
+
+  </body>
+</html>
+<!-- **2** -->
