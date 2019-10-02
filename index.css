@@ -4,10 +4,16 @@
   flex-direction: row;
   flex-flow: row wrap;
   justify-content: space-around;
-
   height: 300px;
-
   border; 1px solid black;
+}
+.userCol{
+    background-color: light-grey;
+}
+
+.userMenu{
+  list-style: none;
+  text-decoration: none;
 }
 
 form{
@@ -26,8 +32,8 @@ form{
   vertical-margin: auto;
 }
 
-input {
-
+.userHeader{
+  background-color: grey;
 }
 .header{
   background-color: blue;

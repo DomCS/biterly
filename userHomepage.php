@@ -38,8 +38,23 @@
 
 <!-- LOGGEd in user information-->
        <?php if(isset($_SESSION['username'])) : ?>
-         <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-         <p><a href="index.php?logout='1'" style="color:red:"> Logout </a> </p>
+         <div class="content">
+
+           <div class="userHeader">
+             <img src="biterlyLogo.png" alt="">
+             <!--<p>Welcome <strong><?php //echo $_SESSION['username']; ?></strong></p> -->
+             <p><a href="index.php?logout='1'" style="color:red:"> Logout </a> </p>
+           </div>
+
+           <div class="userCol">
+             <ul class="userMenu">
+               <li>Host</li><hr>
+               <li>Discover</li><hr>
+               <li>Open</li><hr>
+               <li>Past</li><hr>
+             </ul>
+           </div>
+         </div>
        <?php endif ?>
      </div>
 
