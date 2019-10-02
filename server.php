@@ -7,22 +7,13 @@ $email = "";
 
 $password = '';
 $errors = array();
-//connect to database
-
 
 
 //connect to the database
 $db = mysqli_connect('localhost', 'root', $password, 'users') or die("could not connect to database");
-//if (mysqli_connect_error()){
-  //die('Connect Error ('. mysqli_connect_errno() . ') '
-  //. mysqli_connect_error());
-//}
-
 
 
 //Register User
-
-
 if (isset($_POST['reg_user'])){
   //receive all input values from the form
   $username = mysqli_real_escape_string($db, $_POST['username']);
@@ -69,41 +60,36 @@ if (count($errors) == 0) {
 }
 
 //login user
-
+//When button in the login form is hit, server.php recieves the post method ['login_user']
 if(isset($_POST['login_user'])) {
+//grab username and password from the form by their names
   $username = mysqli_real_escape_string($db, $_POST['username']);
   $password = mysqli_real_escape_string($db, $_POST['password']);
 
   if(empty($username)){
     array_push($errors, 'Username is required');
   }
+
   if(empty($password)) {
     array_push($errors, 'Password is required');
   }
 
   if(count($errors) == 0) {
-    $password = md5($password);
+
+    $password = md5($password_1);
+
     $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
     $results = mysqli_query($db, $query);
+
     if(mysqli_num_rows($results) == 1) {
       $_SESSION['username'] = $username;
-      $_SESSION['success'] = "You are now loggin in";
+      $_SESSION['success'] = "You are logged in";
       header('location: userHomepage.php');
-    }else{
-      array_push($errors, "Wrong username/password combination");
-    }
+    } else {
+        array_push($errors, "Username or password are incorrect");
+      }
   }
+
 }
-
-/*
-// Inserting these values into the MySQL table
-// we created above
-$query = "insert into form_data (first_name, last_name, gender, age, city, submit_date)
-  values ('" .$fname . "', '" .$lname . "', '" .$gender . "', " .$age . ", '" .$city . "', '" .$submitdate . "')";
-$result = mysqli_query($db, $query);
-// mysql_query() is a PHP function for executing
-// MySQL queries
-*/
-
 
 ?>
