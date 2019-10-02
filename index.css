@@ -1,5 +1,5 @@
 
-.container{
+.content{
   display: flex;
   flex-direction: row;
   flex-flow: row wrap;
@@ -31,6 +31,12 @@ input {
 }
 .header{
   background-color: blue;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+  text-align: center;
 }
 
 @mixin flexbox() {

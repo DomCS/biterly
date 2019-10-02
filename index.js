@@ -26,3 +26,8 @@ function myFunction() {
   }
   document.getElementById("demo").innerHTML = text;
 }
+
+function displayPromo() {
+  getElementById("promo").innerHTML =
+  "<h1>hello </h1>";
+}
