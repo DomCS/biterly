@@ -46,6 +46,13 @@
              <p><a href="index.php?logout='1'" style="color:red:"> Logout </a> </p>
            </div>
 
+          <!--enctype specifies how the form data should be encoded -->
+           <form class="" action="upload.php" method="post" enctype="multipart/form-data" >
+             <!-- accapting a file -->
+             <input type="file" name="file" value="">
+             <button type="submit" name="submit">UPLOAD</button>
+           </form>
+
            <div class="userCol">
              <ul class="userMenu">
                <li>Host</li><hr>
