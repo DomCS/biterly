@@ -54,6 +54,8 @@ if (count($errors) == 0) {
   mysqli_query($db, $query);
   $_SESSION['username'] = $username;
   $_SESSION['success'] = "You are now logged in";
+  $queryIg = "INSERT INTO profileimg (userid, status) VALUES('1', '1' )";
+  mysqli_query($db, $queryIg);
   header('location: login.php');
 }
 
@@ -91,5 +93,7 @@ if(isset($_POST['login_user'])) {
   }
 
 }
+
+
 
 ?>

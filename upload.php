@@ -22,10 +22,12 @@ allow */
       if($fileError === 0){
         if($fileSize < 5000000){
           //gets time format in microseconds for unique id number
-          $fileNameNew = uniqid('', true).".".$fileActualExt;
+          $fileNameNew = "profile".$id.".".$fileActualExt;
           $fileDestination = 'uploads/'.$fileNameNew;
           move_uploaded_file($fileTmpName, $fileDestination);
-          header("Location : userHomepage.php?upload_success");
+          $sql = "UPDATE profileimg SET status=0 WHERE userid='$id';";
+          $result = mysqli_query($db, $sql);
+          header("Location: userHomepage.php?uploadsuccess");
         } else{
           echo "your file is too big";
         }

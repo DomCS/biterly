@@ -1,6 +1,7 @@
 <?php
-  session_start();
-
+  //session_start();
+  //include_once 'dbh.php';
+include_once 'server.php';
   if(!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
@@ -19,6 +20,30 @@
      <link rel="stylesheet" type="text/css" href="index.css">
    </head>
    <body>
+     <?php
+     $sql = "SELECT * FROM users";
+     $result = mysqli_query($db, $sql);
+     if (mysqli_num_rows($result) > 0 ){
+       while($row = mysqli_fetch_assoc($result)) {
+         $id=$row['id'];
+         $sqlImg = "SELECT * FROM profileimg WHERE userid='$id'";
+         $resultImg = mysqli_query($db, $sqlImg);
+         while ($rowImg = mysqli_fetch_assoc($resultImg)) {
+           echo "<div>";
+             if($rowImg['status'] == 0) {
+               echo "<img src='uploads/profile".$id.".jpg'>";
+             } else {
+               echo "<img src='uploads/profileDefault.jpg'>";
+             }
+             echo $row['username'];
+           echo "</div>";
+         }
+       }
+     } else {
+       echo "there are no users";
+     }
+
+      ?>
      <div class="header">
       <h2></h2>
      </div>
@@ -39,7 +64,29 @@
 <!-- LOGGEd in user information-->
        <?php if(isset($_SESSION['username'])) : ?>
          <div class="content">
-
+           <?php
+              $query = "SELECT * FROM profileimg";
+              $result = mysqli_query($db, $query);
+              if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)){
+                  $id = $row['id'];
+                  $queryImg = "SELECT * FROM profileImg WHERE userid=''";
+                  $resultImg = mysqli_query($db, $queryImg);
+                  while ($rowImg = mysqli_fetch_assoc($resultImg)) {
+                    echo "<div>";
+                      if($rowImg['status'] == 0) {
+                        echo "<img src='uploads/profile".$id.".jpg'>";
+                      } else {
+                        echo "<img src='uploads/profileDefault.jpg'>";
+                      }
+                      echo $row['username'];
+                    echo "</div>";
+                  }
+                }
+              } else {
+                echo "there are no users here yet";
+              }
+            ?>
            <div class="userHeader">
              <img src="biterlyLogo.png" alt="">
              <!--<p>Welcome <strong><?php //echo $_SESSION['username']; ?></strong></p> -->
